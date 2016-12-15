@@ -1,9 +1,25 @@
+$sessions-dropdown-width: 227px;
+$source-indicator-width: 150px;
+
 .sessions-dropdown {
   margin: 0 0 0 4px;
 
   .dropdown-toggle {
-    width: 227px;
+    width: $sessions-dropdown-width;
     border-radius: 3px 0 0 3px;
+  }
+  .dropdown-selected {
+    display: inline-block;
+    width: ($sessions-dropdown-width - 28px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  li.dropdown-item > a {
+    width: ($sessions-dropdown-width - 48px); // 48 is width of 2 actions
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
 .sessions-dropdown__btn {
@@ -11,20 +27,16 @@
   border-radius: 0 3px 3px 0;
 }
 .source-indicator {
-  padding: 0 9px;
-  border: 0;
-  background-color: $g5-pepper;
-  height: 30px;
-  line-height: 30px;
-  color: $g13-mist;
-  font-weight: 700;
-  font-size: 12px;
-  border-radius: 3px;
   margin-right: 16px;
 
-  > .icon {
+  .dropdown-toggle {
+    width: $source-indicator-width;
+  }
+  .source-name {
     display: inline-block;
-    font-size: 16px;
-    margin: 0 4px 0 -2px;
+    width: ($source-indicator-width - 28px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }

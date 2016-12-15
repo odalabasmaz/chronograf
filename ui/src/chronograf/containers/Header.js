@@ -4,6 +4,7 @@ import {withRouter} from 'react-router';
 import TimeRangeDropdown from '../../shared/components/TimeRangeDropdown';
 import timeRanges from 'hson!../../shared/data/timeRanges.hson';
 import Dropdown from 'shared/components/Dropdown';
+import SimpleDropdown from 'src/shared/components/SimpleDropdown';
 
 const Header = React.createClass({
   propTypes: {
@@ -128,10 +129,13 @@ const Header = React.createClass({
             />
             <div className="btn btn-sm btn-primary sessions-dropdown__btn" onClick={this.handleCreateExploration}>New</div>
             <h1>Source:</h1>
-            <div className="source-indicator">
-              <span className="icon cpu"></span>
-              {this.context.source.name}
-            </div>
+            <SimpleDropdown items={[{text: 'sourceA'}, {text: 'sourceB'}]} className="source-indicator">
+              <span className="source-name">
+                <span className="icon cpu"></span>
+                {this.context.source.name}
+              </span>
+              <span className="caret"></span>
+            </SimpleDropdown>
             <TimeRangeDropdown onChooseTimeRange={this.handleChooseTimeRange} selected={this.findSelected(timeRange)} />
           </div>
         </div>
