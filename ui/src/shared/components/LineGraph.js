@@ -7,19 +7,30 @@ import _ from 'lodash';
 import timeSeriesToDygraph from 'utils/timeSeriesToDygraph';
 import lastValues from 'src/shared/parsing/lastValues';
 
+const {
+  array,
+  arrayOf,
+  bool,
+  func,
+  number,
+  shape,
+  string,
+} = PropTypes;
+
 export default React.createClass({
   displayName: 'LineGraph',
   propTypes: {
-    data: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
-    title: PropTypes.string,
-    isFetchingInitially: PropTypes.bool,
-    isRefreshing: PropTypes.bool,
-    underlayCallback: PropTypes.func,
-    isGraphFilled: PropTypes.bool,
-    overrideLineColors: PropTypes.array,
-    queries: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
-    showSingleStat: PropTypes.bool,
-    activeQueryIndex: PropTypes.number,
+    data: arrayOf(shape({}).isRequired).isRequired,
+    title: string,
+    isFetchingInitially: bool,
+    isRefreshing: bool,
+    underlayCallback: func,
+    isGraphFilled: bool,
+    overrideLineColors: array,
+    queries: arrayOf(shape({}).isRequired).isRequired,
+    showSingleStat: bool,
+    activeQueryIndex: number,
+    isInDataExplorer: bool,
   },
 
   getDefaultProps() {
